@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Chat.de</title>
+    <style>
+    .th {
+            width: 40pc;
+            height: 6pc;
+            left: 40pc;
+            font-size:1.5pc;
+        }
+    .td {
+            height: 4pc;
+            top: 16pc;
+            left: 20pc;
+        }
+     .button_position {
+      
+      width: 18pc;
+      height: 4.6pc;
+      background-color: rgb(133, 241, 234);
+      color: antiquewhite;
+      box-shadow: 2px 2px 5px rgb(70, 190, 14);
+      font-size: 2pc;
+      color: rgb(2, 26, 31);
+      border-top-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+     }
+     .div_style {
+      position: absolute;
+      width: 30pc;
+      height: 30pc;
+      top: 11pc;
+      left: 20pc;
+      background-color: aliceblue;
+      font-size: large;
+      text-align: center;
+      line-height: 100px;
+      padding: 0 10px;
+
+     }
+     .background-color{
+      background-color: rgba(51, 159, 32, 0.87);
+     }
+
+    </style>
+    
+</head>
+<body class="background-color">
+
+    <h1 style="text-decoration: underline;color:rgb(0, 0, 0); font-size: 3.5pc;">Bauwong Prambo</h1>
+    <h2 id="h2" style="position:absolute;top:4pc;left:40pc; font-size: 2.8pc;"></h2>
+    <div id="div" style="position:absolute; top:14pc;left:38pc;font-size:5pc;color:rgb(250, 4, 4);height:25pc;"></div>
+    <button onclick="submit()" class="button_position"  style="position: absolute;top:39pc;left: 69pc;">Speichern</button>
+    <button type="submit" onclick="zahlen()" class="button_position"  style="position: absolute;top:30pc;left: 69pc;background-color:rgb(94, 8, 8)">Zahlen</button>
+    <button onclick="zuruck()" class="button_position"  style="position: absolute;top:39pc;left: 1pc;border-radius: 16px;width:9pc;">Zurück</button>
+<table>
+    <tr class="td"> <th class="th">Spezi</th></tr>
+    <tr class="td"><th class="th">Helles Müllerbräu</th></tr>
+    <tr class="td"> <th class="th">Dunkles</th></tr>
+    <tr class="td"><th class="th">Klopfer</th></tr>
+    <tr class="td"><th class="th">Goas</th></tr>
+    <tr class="td"><th class="th">Bruder vertrau mir Mische</th></tr> 
+    
+    <tr><th><label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-3" style="position: absolute; left: 32pc; top: 10.3pc;width:60px;">
+        <input type="checkbox" id="switch-3" class="mdl-switch__input">
+        <span class="mdl-switch__label"></span>
+      </label></th></tr>
+    <tr><th><label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4" style="position: absolute; left: 32pc; top: 16.6pc;width:60px;">
+        <input type="checkbox" id="switch-4" class="mdl-switch__input">
+        <span class="mdl-switch__label"></span>
+      </label></th></tr>
+    <tr><th><label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-5" style="position: absolute; left: 32pc; top: 23.0pc;width:60px;">
+        <input type="checkbox" id="switch-5" class="mdl-switch__input">
+        <span class="mdl-switch__label"></span>
+      </label></th></tr>
+    <tr><th><label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-6" style="position: absolute; left: 32pc; top: 29.3pc;width:60px;">
+        <input type="checkbox" id="switch-6" class="mdl-switch__input">
+        <span class="mdl-switch__label"></span>
+      </label></th></tr>
+    <tr><th><label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-7" style="position: absolute; left: 32pc; top: 35.3pc;width:60px;">
+        <input type="checkbox" id="switch-7" class="mdl-switch__input">
+        <span class="mdl-switch__label"></span>
+      </label></th></tr>
+      <tr><th><label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2" style="position: absolute; left: 32pc; top: 41.2pc;width:60px;">
+        <input type="checkbox" id="switch-2" class="mdl-switch__input">
+        <span class="mdl-switch__label"></span>
+      </label></th></tr>
+        </table>
+    
+
+    <script>
+
+let variable3 = sessionStorage.getItem("variable3");
+
+let text1 = "Hallo ";
+let text2 = variable3;
+let zusammengeführterText = text1 + text2;
+        var divElement = document.getElementById("h2");
+        divElement.innerHTML = zusammengeführterText;
+var checkbox = document.getElementById("switch-3");
+var checkbox_2 = document.getElementById("switch-4");
+var checkbox_3 = document.getElementById("switch-5");
+var checkbox_4 = document.getElementById("switch-6");
+var checkbox_5 = document.getElementById("switch-7");
+var checkbox_6 = document.getElementById("switch-2");
+
+function submit(){
+    if(!checkbox.checked && !checkbox_2.checked && !checkbox_3.checked && !checkbox_4.checked && !checkbox_5.checked && !checkbox_6.checked){
+        let text7 = "zuerst auswählen"; 
+        var divElement_2 = document.getElementById("div");
+        divElement_2.innerHTML = text7;
+        divElement_2.style.display = "block";
+        setTimeout(function() {
+            divElement_2.style.display = "none";
+            window.location.reload();
+        }, 2000);
+    }
+
+
+
+
+    if(checkbox.checked){
+        let name = text2;
+        let zahlen = 2;
+        let data = {
+            name: name,
+            zahlen: zahlen
+        };
+        let formData = new FormData();
+    let token = '{{ csrf_token }}';
+    formData.append('data', JSON.stringify (data));
+    formData.append('csrfmiddlewaretoken', token);
+      
+   
+    fetch('/homepage/' , {
+       method: 'POST',
+       body: formData,
+      });
+        //senden mit name
+        
+        let text8 = "Auswahl war erfolgreich";
+        var divElement_2 = document.getElementById("div");
+        divElement_2.innerHTML = text8;
+        divElement_2.style.display = "block";
+        setTimeout(function() {
+            divElement_2.style.display = "none";
+            window.location.reload();
+        }, 2000);
+    }
+    if(checkbox_2.checked){
+        let name = text2;
+        let zahlen = 3;
+        let data = {
+            name: name,
+            zahlen: zahlen
+        };
+        let formData = new FormData();
+    let token = '{{ csrf_token }}';
+    formData.append('data', JSON.stringify (data));
+    formData.append('csrfmiddlewaretoken', token);
+      
+   
+    fetch('/homepage/' , {
+       method: 'POST',
+       body: formData,
+      });
+        //senden mit name
+        
+        let text8 = "Auswahl war erfolgreich";
+        var divElement_2 = document.getElementById("div");
+        divElement_2.innerHTML = text8;
+        divElement_2.style.display = "block";
+        setTimeout(function() {
+            divElement_2.style.display = "none";
+            window.location.reload();
+        }, 2000);
+    }
+    if(checkbox_3.checked){
+        let name = text2;
+        let zahlen = 2.5;
+        let data = {
+            name: name,
+            zahlen: zahlen
+        };
+        let formData = new FormData();
+    let token = '{{ csrf_token }}';
+    formData.append('data', JSON.stringify (data));
+    formData.append('csrfmiddlewaretoken', token);
+      
+   
+    fetch('/homepage/' , {
+       method: 'POST',
+       body: formData,
+      });
+        //senden mit name
+        
+        let text8 = "Auswahl war erfolgreich";
+        var divElement_2 = document.getElementById("div");
+        divElement_2.innerHTML = text8;
+        divElement_2.style.display = "block";
+        setTimeout(function() {
+            divElement_2.style.display = "none";
+            window.location.reload();
+        }, 2000);
+    }
+    if(checkbox_4.checked){
+        let name = text2;
+        let zahlen = 1;
+        let data = {
+            name: name,
+            zahlen: zahlen
+        };
+        let formData = new FormData();
+    let token = '{{ csrf_token }}';
+    formData.append('data', JSON.stringify (data));
+    formData.append('csrfmiddlewaretoken', token);
+      
+   
+    fetch('/homepage/' , {
+       method: 'POST',
+       body: formData,
+      });
+        //senden mit name
+        
+        let text8 = "Auswahl war erfolgreich";
+        var divElement_2 = document.getElementById("div");
+        divElement_2.innerHTML = text8;
+        divElement_2.style.display = "block";
+        setTimeout(function() {
+            divElement_2.style.display = "none";
+            window.location.reload();
+        }, 2000);
+    }
+    if(checkbox_5.checked){
+        let name = text2;
+        let zahlen = 5;
+        let data = {
+            name: name,
+            zahlen: zahlen
+        };
+        let formData = new FormData();
+    let token = '{{ csrf_token }}';
+    formData.append('data', JSON.stringify (data));
+    formData.append('csrfmiddlewaretoken', token);
+      
+   
+    fetch('/homepage/' , {
+       method: 'POST',
+       body: formData,
+      });
+        //senden mit name
+        
+        let text8 = "Auswahl war erfolgreich";
+        var divElement_2 = document.getElementById("div");
+        divElement_2.innerHTML = text8;
+        divElement_2.style.display = "block";
+        setTimeout(function() {
+            divElement_2.style.display = "none";
+            window.location.reload();
+        }, 2000);
+    }
+    if(checkbox_6.checked){
+        let name = text2;
+        let zahlen = 5;
+        let data = {
+            name: name,
+            zahlen: zahlen
+        };
+        let formData = new FormData();
+    let token = '{{ csrf_token }}';
+    formData.append('data', JSON.stringify (data));
+    formData.append('csrfmiddlewaretoken', token);
+      
+   
+    fetch('/homepage/' , {
+       method: 'POST',
+       body: formData,
+      });
+        //senden mit name
+        
+        let text8 = "Auswahl war erfolgreich";
+        var divElement_2 = document.getElementById("div");
+        divElement_2.innerHTML = text8;
+        divElement_2.style.display = "block";
+        setTimeout(function() {
+            divElement_2.style.display = "none";
+            window.location.reload();
+        }, 2000);
+    }
+}
+
+function zahlen(){
+    $(document).ready(function() { 
+        $('#sendenButton').on('click', function() {  
+        var suchbegriff = text2;  
+     $.ajax({ 
+     url: '/zahlen/', 
+     method: 'GET',
+     data: { 
+        suchbegriff: suchbegriff 
+    },
+});
+        });
+    })
+    var suchbegriff = text2;
+    var url = '/zahlen/?suchbegriff=' + encodeURIComponent(suchbegriff)    ; 
+    window.location.href = url;
+}
+
+
+
+
+
+
+function zuruck(){
+    window.location = "/bauwong/";
+}
+  </script>
+  
+</body>
+</html>

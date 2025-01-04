@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Chat.de</title>
+    <style>
+    .th {
+            width: 40pc;
+            height: 6pc;
+            left: 40pc;
+            font-size:1.5pc;
+        }
+    .td {
+            height: 4pc;
+            top: 16pc;
+            left: 20pc;
+        }
+     .button_position {
+      
+      width: 18pc;
+      height: 4.6pc;
+      background-color: rgb(133, 241, 234);
+      color: antiquewhite;
+      box-shadow: 2px 2px 5px rgb(70, 190, 14);
+      font-size: 2pc;
+      color: rgb(2, 26, 31);
+      border-top-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+     }
+     .div_style {
+      position: absolute;
+      width: 30pc;
+      height: 30pc;
+      top: 11pc;
+      left: 20pc;
+      background-color: aliceblue;
+      font-size: large;
+      text-align: center;
+      line-height: 100px;
+      padding: 0 10px;
+
+     }
+     .background-color{
+      background-color: rgba(51, 159, 32, 0.87);
+     }
+
+    </style>
+    
+</head>
+<body class="background-color">
+
+    <h1 style="text-decoration: underline;color:rgb(0, 0, 0); font-size: 3.5pc;">Bauwong Prambo</h1>
+    <h2 id="h2" style="position:absolute;top:4pc;left:40pc; font-size: 2.8pc;"></h2>
+    <div id="div" style="position:absolute; top:10pc;left:50pc;font-size:5pc;color:rgb(250, 4, 4)"></div>
+    <div id="div_6" style="position:absolute; top:16pc;left:30pc;font-size:5pc;color:rgb(250, 4, 4)"></div>
+<button onclick="zahlen()" id="sendenButton" class="button_position"  style="position: absolute;top:30pc;left: 69pc;background-color:rgb(94, 8, 8)">Zahlen</button>
+<button id="addierenButton" class="button_position"  style="position: absolute;top:38pc;left: 69pc;background-color:rgb(178, 10, 66)">Abrechnen</button>
+<button id="loeschenButton" class="button_position"  style="position: absolute;top: 31pc;left: 49pc;background-color:rgb(11, 67, 2)">Bezahlt</button>
+    <button onclick="zuruck()" class="button_position"  style="position: absolute;top:39pc;left: 49pc;">Zurück</button>
+
+    <ul id="ul"> {% for zahlen in zahlene %}
+         <li id="ul" class="zahl">{{ zahlen }}</li> {% endfor %} </ul>
+    <script>
+
+let variable3 = sessionStorage.getItem("variable3");
+
+let text1 = "Hallo ";
+let text2 = variable3;
+let zusammengeführterText = text1 + text2;
+        var divElement = document.getElementById("h2");
+        divElement.innerHTML = zusammengeführterText;
+
+        $(document).ready(function() { 
+            $('#addierenButton').on('click', function() { 
+            var summe = 0; 
+            $('.zahl').each(function() {
+                 var zahl = parseFloat($(this).text()); 
+                 if (!isNaN(zahl)) {
+                     summe += zahl; 
+                    } }); 
+                    $('#div_6').text('Summe: ' + summe); 
+                }); 
+            });
+
+
+            
+
+
+        $(document).ready(function() { 
+            $('#sendenButton').on('click', function() {  var suchbegriff = text2;  
+         $.ajax({ 
+         url: '/zahlen/', 
+         method: 'GET',
+         data: { 
+            suchbegriff: suchbegriff 
+        },
+    });
+            });
+        })
+
+        var ul_1 = document.getElementById('ul');
+function zahlen(){
+    ul_1.style.display = "block";
+    setTimeout(function() {
+        ul_1.style.display = "block";
+    }, 5000);
+   }
+
+
+function zuruck(){
+    window.location = "/homepage/";
+}
+  </script>
+  
+</body>
+</html>
